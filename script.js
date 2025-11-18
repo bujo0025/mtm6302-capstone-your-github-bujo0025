@@ -1,48 +1,48 @@
-// NASA APOD viewer with date picker
-const apiKey = "izEFdoreAnmTfLg1IIMvPsfLZcSDGzq5gZNxe1ch";
+const apiKey = "qvlXjlbgwyFhTPlzXPCQMtQyhwLPQF4aZpi7IwOS";
 const dateInput = document.getElementById("dateInput");
 const getImageBtn = document.getElementById("getImage");
 const apodImage = document.getElementById("apodImage");
-const today = new Date().toISOString().split("T")[0];
-dateInput.max = today;
+const imageTitle = document.getElementById("imageTitle");
+const imageDesc = document.getElementById("imageDesc");
+
+const today = new Date();
+today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+const localDate = today.toISOString().split("T")[0];
+
+dateInput.value = localDate;
 
 window.addEventListener("load", () => {
-  dateInput.value = today;
-  fetchImage(today);
+  fetchImage(localDate);
 });
 
-// Fetch image when button is clicked
 getImageBtn.addEventListener("click", () => {
   const date = dateInput.value;
-  if (!date) {
-    alert("Please select a date first!");
-    return;
-  }
+  if (!date) return;
   fetchImage(date);
 });
 
-// Fetch and display APOD
+// Fetch APOD Image
 async function fetchImage(date) {
-  try {
-    const response = await fetch(
-      `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${date}`
-    );
-    const data = await response.json();
+  const response = await fetch(
+    `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${date}`
+  );
 
-    if (data.media_type === "image") {
-      apodImage.src = data.url;
-      apodImage.alt = data.title || "NASA APOD Image";
-    } else {
-      // fallback image for videos
-      apodImage.src =
-        "https://apod.nasa.gov/apod/image/1503/SombreroGalaxy_Hubble_960.jpg";
-      apodImage.alt = "Fallback NASA Image";
-    }
-
-    console.log(`Loaded APOD for ${date}: ${data.title}`);
-  } catch (error) {
-    console.error("Error fetching APOD:", error);
-    alert("Unable to fetch image for this date.");
+  if (!response.ok) {
+    console.log("Bad API response:", await response.text());
+    return;
   }
+
+  const data = await response.json();
+  displayImage(data);
 }
 
+// Display image and info
+function displayImage(data) {
+  if (data.media_type === "image" && data.url) {
+    apodImage.src = data.url;
+    apodImage.alt = data.title || "NASA APOD Image";
+  }
+
+  imageTitle.textContent = data.title || "Astronomy Picture of the Day";
+  imageDesc.textContent = data.explanation || "No description available.";
+}
