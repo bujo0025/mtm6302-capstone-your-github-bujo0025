@@ -1,0 +1,392 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  background: radial-gradient(ellipse at top, #0b0b1d, #000);
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+header {
+  width: 100%;
+  background: url(../images/bg4.jpg) center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+header h1,
+.menu-icon {
+  position: relative;
+  z-index: 2;
+}
+
+.menu-icon {
+  position: absolute;
+  left: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: normal;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.image-section img {
+  width: 95%;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-radius: 8px;
+  display: block;
+  box-shadow: 0 0px 30px rgba(177, 177, 177, 0.5);
+}
+
+.intro {
+  margin-top: 15px;
+}
+
+.intro h2 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin-bottom: 1rem;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.sub {
+  font-size: 20px;
+  margin-bottom: 1rem;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.date {
+  font-size: 1rem;
+  color: #d9d9d9;
+  margin-top: 5px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.about {
+  margin-top: 3rem;
+  width: 85%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.about h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  color: #d8d8d8;
+  font-size: 15px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.project-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  width: 85%;
+  max-width: 700px;
+  text-align: center;
+  margin: 2rem auto;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.project-section h2 {
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+.project-section p {
+  font-size: 16px;
+  color: #d8d8d8;
+  line-height: 1.6;
+}
+
+.favourites {
+  margin: 30px 0 40px;
+}
+
+.favourites a {
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+  transition: opacity 0.3s;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.favourites a:hover {
+  opacity: 0.8;
+}
+
+footer {
+  width: 100%;
+  background: url(../images/background.jpg) center/cover no-repeat;
+  position: relative;
+  z-index: 1;
+  color: #ccc;
+  padding: 15px 0;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: "Times New Roman", Times, serif;
+  overflow: hidden;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+footer p,
+footer a {
+  position: relative;
+  z-index: 2;
+  color: #ccc;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.date-picker {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.date-picker input[type="date"] {
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background-color: #1c75d8;
+  color: #fff;
+  font-size: 18px;
+  font-weight: normal;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 15px rgba(143, 143, 143, 0.5);
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M7 11h5v5H7z' opacity='.3'/><path d='M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 22px;
+  cursor: pointer;
+}
+
+.date-picker input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.date-picker input[type="date"]:hover,
+.date-picker input[type="date"]:focus {
+  background-color: rgba(30, 144, 255, 0.25);
+  box-shadow: 0 4px 15px rgba(177, 177, 177, 0.5);
+  transform: translateY(-2px);
+}
+
+.date-picker button {
+  background-color: #1c75d8;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 24px;
+  font-size: 18px;
+  font-weight: normal;
+  cursor: pointer;
+  font-family: "Times New Roman", Times, serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(177, 177, 177, 0.5);
+}
+
+.date-picker button:hover {
+  background-color: rgba(30, 144, 255, 0.25);
+  box-shadow: 0 4px 15px rgba(177, 177, 177, 0.5);
+  transform: translateY(-2px);
+}
+
+.favourites {
+  margin: 30px 0 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.favourites a {
+  background-color: #1c75d8;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 24px;
+  font-size: 18px;
+  font-weight: normal;
+  cursor: pointer;
+  font-family: "Times New Roman", Times, serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(177, 177, 177, 0.5);
+}
+
+.favourites a:hover {
+  background-color: rgba(30, 144, 255, 0.25);
+  box-shadow: 0 6px 20px rgba(177, 177, 177, 0.6);
+  transform: translateY(-2px);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  main {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .image-section,
+  .intro,
+  .about,
+  .project-section {
+    width: 48%;
+  }
+
+  header {
+    justify-content: center; 
+    padding: 20px 40px; 
+  }
+
+  .menu-icon {
+    position: absolute;
+    left: 20px;
+  }
+
+  header h1 {
+    font-size: 3rem; 
+    text-align: center;
+    margin: 0;
+  }
+
+  .about h2,
+  .project-section h2 {
+    font-size: 2rem;
+  }
+
+  footer {
+    padding: 20px 40px;
+  }
+}
+
+.popular-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.apod-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0,0,0,0.3);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(177,177,177,0.3);
+}
+
+.apod-item img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: transform 0.3s;
+}
+
+.apod-item img:hover {
+  transform: scale(1.05);
+}
+
+.date-label {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.back-home-container {
+  margin-top: 20px; 
+  text-align: center;
+}
+
+.back-home-button {
+  display: inline-block;
+  background-color: #1c75d8;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+  box-shadow: 0 4px 15px rgba(177, 177, 177, 0.5);
+}
+
+.back-home-button:hover {
+  background-color: rgba(28, 117, 216, 0.8);
+  box-shadow: 0 6px 20px rgba(177, 177, 177, 0.6);
+  transform: translateY(-2px);
+}
